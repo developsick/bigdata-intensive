@@ -6,6 +6,7 @@ Setup Instructions
 1. Create EMR cluster
 2. Get ec2 ip
 3. local port tunneling
+
 '''
 ssh -i SKCC.pem hadoop@ec2-{ec2-ip}.ap-northeast-2.compute.amazonaws.com -N \       #ec2 ssh
  -L 8890:ec2-{ec2-ip}.ap-northeast-2.compute.amazonaws.com:8890 \                   #Zeppelin
@@ -14,7 +15,9 @@ ssh -i SKCC.pem hadoop@ec2-{ec2-ip}.ap-northeast-2.compute.amazonaws.com -N \   
  -L 18080:ec2-{ec2-ip}.ap-northeast-2.compute.amazonaws.com:18080 \                 #Spark History Server WebUI
  -L 8088:ec2-{ec2-ip}.ap-northeast-2.compute.amazonaws.com:8088                     #Yarn Resource Manager WebUI
 '''
+
 4. Uploading the dataset to the EMR cluster
+
 '''
 scp -i ~/SKCC.pem yelp_dataset.tar hadoop@ec2-{ec2-ip}.compute-1.amazonaws.com:yelp_dataset.tar
 '''
@@ -36,6 +39,7 @@ Sample Tutorials
     - review.json
     - tip.json
     - user.json
+
 '''
 result:
 [root@local]$ ssh -i ~/SKCC.pem hadoop@ec2-52-78-70-95.ap-northeast-2.compute.amazonaws.com
