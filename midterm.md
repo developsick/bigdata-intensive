@@ -1,8 +1,7 @@
-Midterm
-
+# Midterm
 * Course Material : http://bit.ly/SKCC_Midproject
 
-Setup Instructions
+## Setup Instructions
 1. Create EMR cluster
 2. Get ec2 ip
 3. local port tunneling
