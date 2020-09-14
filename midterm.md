@@ -187,7 +187,52 @@ FROM restaurants_df WHERE attributes.ambience.romantic = true LIMIT 10""").show(
 +--------------------+-----+-------------+--------+
 only showing top 2 rows
 ```
+5. Try creating the query again, but this time, using column expressions.
 
 
+### Join restaurants and reviews to create a table of reviews of restaurants
+1. Join review_df and restaurants_df using the business_id column. Select the business_id
+of the restaurant, the stars received in the review and the user_id of the reviewer.
+```
+revRestDF = reviewDF.join(restaurantsDF,reviewDF.business_id == restaurantsDF.business_id) \
+.select(restaurantsDF.business_id, reviewDF.stars, reviewDF.user_id)
+revRestDF.show(2)
+revRestDF.createOrReplaceTempView("revRest_df")
 
++--------------------+-----+--------------------+
+|         business_id|stars|             user_id|
++--------------------+-----+--------------------+
+|0W4lkclzZThpx3V65...|    5|bv2nCi5Qv5vroFiqK...|
+|AEx2SYEUJmTxVVB18...|    5|bv2nCi5Qv5vroFiqK...|
++--------------------+-----+--------------------+
+only showing top 2 rows
+```
+2. Verify that the new table/dataframe has been properly created
+    * Count the number of restaurant reviews
+    ```
+    select count(*) from revRest_df 
+    ```
+    * Group the reviews by number of stars received and count each group
+    ```
+    select stars, count(*) from revRest_df group by stars order by stars desc;
+    ```
 
+### Create a dataframe/table of elite users
+1. Create a dataframe of elite users by starting with the userDF anad adding an additional
+column named elite_year. The new column will be obtained by exploding the elite array
+column.
+```
+from pyspark.sql.functions import explode
+eliteDF = userDF.withColumn("elite_year", explode(userDF.elite))
+eliteDF.show(2)
+eliteDF.createOrReplaceTempView(elite_df)
+```
+2. Verify that the new table/dataframe has been properly created
+    * Count the number of elite users
+    ```
+    select count(*) from elite_df
+    ```
+    * For each elite user, count the number of years that they were elite users
+    ```
+    select first(name), user_id, count(elite_year) from elite_df group by user_id
+    ```
