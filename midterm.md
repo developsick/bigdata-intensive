@@ -40,7 +40,7 @@ Sample Tutorials
     - tip.json
     - user.json
 
-'''
+```
 result:
 [root@local]$ ssh -i ~/SKCC.pem hadoop@ec2-52-78-70-95.ap-northeast-2.compute.amazonaws.com
 [hadoop@ip-127-0-0-1 dataset]$ hdfs dfs -ls /user/hdfs/yelp
@@ -51,7 +51,7 @@ drwxr-xr-x   - hadoop hadoop          0 2020-09-14 04:52 /user/hdfs/yelp/photos
 drwxr-xr-x   - hadoop hadoop          0 2020-09-14 04:52 /user/hdfs/yelp/review
 drwxr-xr-x   - hadoop hadoop          0 2020-09-14 04:52 /user/hdfs/yelp/tip
 drwxr-xr-x   - hadoop hadoop          0 2020-09-14 04:52 /user/hdfs/yelp/use
-'''
+```
 
 
 
