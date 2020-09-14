@@ -16,27 +16,26 @@ ssh -i SKCC.pem hadoop@ec2-{ec2-ip}.ap-northeast-2.compute.amazonaws.com -N \   
 '''
 4. Uploading the dataset to the EMR cluster
 '''
-scp -i ~/SKCC.pem yelp_dataset.tar \
-hadoop@ec2-{ec2-ip}.compute-1.amazonaws.com:yelp_dataset.tar
+scp -i ~/SKCC.pem yelp_dataset.tar hadoop@ec2-{ec2-ip}.compute-1.amazonaws.com:yelp_dataset.tar
 '''
 
 
 Sample Tutorials
 0. Connect Hue and setup a new Admin Account (as 'hadoop')
 1. Create subdirectories under your HDFS home directory
-    a. yelp/business
-    b. yelp/checkin
-    c. yelp/photos
-    d. yelp/review
-    e. yelp/tip
-    f. yelp/user
+    - yelp/business
+    - yelp/checkin
+    - yelp/photos
+    - yelp/review
+    - yelp/tip
+    - yelp/user
 2. Place the following json files inside the appropriate subdirectory
-    a. business.json
-    b. checkin.json
-    c. photos.json
-    d. review.json
-    e. tip.json
-    f. user.json
+    - business.json
+    - checkin.json
+    - photos.json
+    - review.json
+    - tip.json
+    - user.json
 '''
 result:
 [root@local]$ ssh -i ~/SKCC.pem hadoop@ec2-52-78-70-95.ap-northeast-2.compute.amazonaws.com
