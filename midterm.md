@@ -6,14 +6,14 @@
 2. Get ec2 ip
 3. local port tunneling
 
-'''
+<pre><code>
 ssh -i SKCC.pem hadoop@ec2-{ec2-ip}.ap-northeast-2.compute.amazonaws.com -N \       #ec2 ssh
  -L 8890:ec2-{ec2-ip}.ap-northeast-2.compute.amazonaws.com:8890 \                   #Zeppelin
  -L 50070:ec2-{ec2-ip}.ap-northeast-2.compute.amazonaws.com:50070 \                 #HDFS Name Node WebUI
  -L 8888:ec2-{ec2-ip}.ap-northeast-2.compute.amazonaws.com:8888 \                   #Hue
  -L 18080:ec2-{ec2-ip}.ap-northeast-2.compute.amazonaws.com:18080 \                 #Spark History Server WebUI
  -L 8088:ec2-{ec2-ip}.ap-northeast-2.compute.amazonaws.com:8088                     #Yarn Resource Manager WebUI
-'''
+</code></pre>
 
 4. Uploading the dataset to the EMR cluster
 
