@@ -17,9 +17,9 @@ ssh -i SKCC.pem hadoop@ec2-{ec2-ip}.ap-northeast-2.compute.amazonaws.com -N \   
 
 4. Uploading the dataset to the EMR cluster
 
-'''
+<pre><code>
 scp -i ~/SKCC.pem yelp_dataset.tar hadoop@ec2-{ec2-ip}.compute-1.amazonaws.com:yelp_dataset.tar
-'''
+</code></pre>
 
 ---------------------------------------
 
