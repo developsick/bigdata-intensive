@@ -39,7 +39,7 @@ Sample Tutorials
     f. user.json
 '''
 result:
-[local]$ ssh -i ~/SKCC.pem hadoop@ec2-52-78-70-95.ap-northeast-2.compute.amazonaws.com
+[root@local]$ ssh -i ~/SKCC.pem hadoop@ec2-52-78-70-95.ap-northeast-2.compute.amazonaws.com
 [hadoop@ip-127-0-0-1 dataset]$ hdfs dfs -ls /user/hdfs/yelp
 Found 6 items
 drwxr-xr-x   - hadoop hadoop          0 2020-09-14 04:52 /user/hdfs/yelp/business
